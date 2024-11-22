@@ -10,7 +10,7 @@ const Signup = () => {
 
   const [errors, setErrors] = useState({});
   const [popupMessage, setPopupMessage] = useState("");
-  const [popupType, setPopupType] = useState(""); // "success" or "error"
+  const [popupType, setPopupType] = useState(""); 
   const [showPopup, setShowPopup] = useState(false);
 
   const [data, setData] = useState({
@@ -32,10 +32,6 @@ const Signup = () => {
       setPopupType("success");
       setShowPopup(true);
 
-      // setTimeout(() => {
-      //   setShowPopup(false);
-      //   Navigate("/login");
-      // }, 2000);
     } catch (error) {
       if (error.name === "ValidationError") {
         const errorMessages = {};
