@@ -6,7 +6,7 @@ const ActiveUser = () => {
   const Navigate = useNavigate();
   const [activeUsers, setActiveUsers] = useState([]);
   const [popupMessage, setPopupMessage] = useState("");
-  const [popupType, setPopupType] = useState(""); // "success" or "error"
+  const [popupType, setPopupType] = useState(""); 
   const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
@@ -24,6 +24,7 @@ const ActiveUser = () => {
 
   const handleDelete = async (userId) => {
     try {
+      
       const response = await axios.put(`http://localhost:3000/user/delete/${userId}`);
       setPopupMessage(response.data.msg);
       setPopupType("success");

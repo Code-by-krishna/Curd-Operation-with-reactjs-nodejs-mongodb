@@ -18,11 +18,11 @@ const Login = () => {
     Password: "",
   });
   console.log(data);
-  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+     
       await loginSchema.validate(data, { abortEarly: false });
       setErrors({});
 
@@ -32,10 +32,6 @@ const Login = () => {
       setPopupType("success");
       setShowPopup(true);
 
-      setTimeout(() => {
-        setShowPopup(false);
-        Navigate("/activeUser");
-      }, 2000);
     } catch (error) {
       if (error.name === "ValidationError") {
         const errorMessages = {};
@@ -59,6 +55,9 @@ const Login = () => {
     setShowPopup(false);
     setPopupMessage("");
     setPopupType("");
+    if (popupType === "success") {
+      Navigate("/activeUser");
+    }
   };
 
   return (
